@@ -1,5 +1,9 @@
 .altezza {
-    height: 800px;
+    height: 500px;
+}
+
+.larghezza {
+    width: 40%;
 }
 
 .mainimg {
