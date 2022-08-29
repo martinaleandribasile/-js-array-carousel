@@ -20,7 +20,7 @@ for (let i = 0; i < mainImages.length; i++) {
 };
 for (let i = 0; i < mainImages.length; i++) {
     const sideimage = mainImages[i];
-    sideImgBox.innerHTML += `<img src="img/${sideimage}.jpg" class="sideimg">`
+    sideImgBox.innerHTML += `<img src="img/${sideimage}.jpg" class="${sideimgclass}">`
 };
 const previousButton = document.getElementById('previous');
 const nextButton = document.getElementById('next');
@@ -32,9 +32,9 @@ nextButton.addEventListener('click', function () {
         activeIndex++;
         /*for (let i = 0; i < mainImages.length; i++) {
             if (i === activeIndex) {
-                sideimgclass.classList.add("sideonfocus");
+                sideimgclass = "sideimg sideonfocus";
             } else {
-                sideimgclass.classList.remove("sideonfocus");
+                sideimgclass = "sideimg"
             }
         }*/
         for (let i = 0; i < mainImages.length; i++) {
