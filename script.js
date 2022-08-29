@@ -31,72 +31,46 @@ sideimgarray[0].classList.add("sideonfocus");
 console.log(sideimgarray);
 
 //inizializzo un indice a 1 in quanto al primo loop voglio che passi direttamente all indice 1
-let activeIndex = 1
+let activeIndex = 0
+
+function imgassignment() {
+
+    for (let i = 0; i < mainImages.length; i++) {
+        const image = mainImages[i];
+        const imageClass = i === activeIndex ? 'd-block mainimg' : 'd-none mainimg'
+        boxMainImg.innerHTML += '<img class="' + imageClass + '" src="img/' + image + '.jpg" alt="due" />'
+        if (i === activeIndex) {
+            sideimgarray[i].classList.add("sideonfocus")
+        } else {
+            sideimgarray[i].classList.remove("sideonfocus")
+        }
+    }
+
+}
+
 // creo evento click sul nextbutton
 nextButton.addEventListener('click', function () {
-    console.log("activenext", activeIndex)
     if (activeIndex < mainImages.length - 1) {
         boxMainImg.innerHTML = '';
-        for (let i = 0; i < mainImages.length; i++) {
-            const image = mainImages[i];
-            const imageClass = i === activeIndex ? 'd-block mainimg' : 'd-none mainimg'
-            boxMainImg.innerHTML += '<img class="' + imageClass + '" src="img/' + image + '.jpg" alt="due" />'
-            if (i === activeIndex) {
-                sideimgarray[i].classList.add("sideonfocus")
-            } else {
-                sideimgarray[i].classList.remove("sideonfocus")
-            }
-        }
         activeIndex++
-        console.log("plus+", activeIndex)
     }
-    else if (activeIndex === (mainImages.length - 1)) {
+    else if (activeIndex === mainImages.length - 1) {
         boxMainImg.innerHTML = '';
-        for (let i = 0; i < mainImages.length; i++) {
-            const image = mainImages[i];
-            const imageClass = i === activeIndex ? 'd-block mainimg' : 'd-none mainimg'
-            boxMainImg.innerHTML += '<img class="' + imageClass + '" src="img/' + image + '.jpg" alt="due" />'
-            if (i === activeIndex) {
-                sideimgarray[i].classList.add("sideonfocus")
-            } else {
-                sideimgarray[i].classList.remove("sideonfocus")
-            }
-        }
         activeIndex = 0;
     }
+    imgassignment();
 });
 
 previousButton.addEventListener('click', function () {
-    console.log("parto da ", activeIndex)
-    activeIndex--
-    console.log("active", activeIndex)
+
     if (activeIndex > 0) {
         boxMainImg.innerHTML = '';
-        console.log("nell if", activeIndex)
-        for (let i = 0; i < mainImages.length; i++) {
-            const image = mainImages[i];
-            const imageClass = i === activeIndex ? 'd-block mainimg' : 'd-none mainimg'
-            boxMainImg.innerHTML += '<img class="' + imageClass + '" src="img/' + image + '.jpg" alt="due" />'
-            if (i === activeIndex) {
-                sideimgarray[i].classList.add("sideonfocus")
-            } else {
-                sideimgarray[i].classList.remove("sideonfocus")
-            }
-        }
+        activeIndex--
     } else if (activeIndex === 0) {
         boxMainImg.innerHTML = '';
-        for (let i = 0; i < mainImages.length; i++) {
-            const image = mainImages[i];
-            const imageClass = i === activeIndex ? 'd-block mainimg' : 'd-none mainimg'
-            boxMainImg.innerHTML += '<img class="' + imageClass + '" src="img/' + image + '.jpg" alt="due" />'
-            if (i === activeIndex) {
-                sideimgarray[i].classList.add("sideonfocus")
-            } else {
-                sideimgarray[i].classList.remove("sideonfocus")
-            }
-        }
-        activeIndex = 5;
+        activeIndex = mainImages.length - 1;
     }
+    imgassignment();
 });
 
 
