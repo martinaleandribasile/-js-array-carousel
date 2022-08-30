@@ -34,7 +34,6 @@ console.log(sideimgarray);
 let activeIndex = 0
 
 function imgassignment() {
-
     for (let i = 0; i < mainImages.length; i++) {
         const image = mainImages[i];
         const imageClass = i === activeIndex ? 'd-block mainimg' : 'd-none mainimg'
